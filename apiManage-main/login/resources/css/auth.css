@@ -1,0 +1,193 @@
+@charset "utf-8";
+
+/* Common */
+html {font-size:10px;}
+body {-webkit-text-size-adjust:none;}
+body, form, fieldset, legend, input, textarea, button, select {margin:0; padding:0;}
+body, input, textarea, select, button, table, pre {font-family:'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', '돋움', Dotum, Arial, sans-serif; font-size:1.4rem; color:#212529;}
+h1, h2, h3, h4, h5, th, strong, b {font-weight:600;}
+img, fieldset, button, iframe {border:0;}
+.input_txt, input.input_date, input.input_time, input.frm_txt {height:34px; line-height:32px; margin:0; padding:0 6px; font-size:1.4rem; color:#212529; border:1px solid #ced4da; background-color:#fff; border-radius:4px; vertical-align:middle; box-sizing:border-box;}
+.input_txt:focus, .input_date:focus, .input_time:focus, .textarea:focus, .frm_select:focus {border-color:#495057; outline:0;}
+.input_txt[readonly] {border-color:#c5c5c5; outline:0;}
+.input_txt.disabled, .input_txt[disabled], .input_date.disabled, .input_date[disabled], .input_time.disabled, .input_time[disabled], .frm_select.disabled, .frm_select[disabled] {cursor:default; background-color:#e9ecef; color:#212529; opacity:0.50; filter:alpha(opacity=50); box-shadow:none;}
+.input_txt::placeholder {font-size:1.3rem; color:#7a858f;}
+.input_txt + .chkbox, .input_txt + .rdobtn {vertical-align:middle;}
+.textarea {margin:0; padding:7px 6px; overflow-y:auto; color:#212529; line-height:1.3; border:1px solid #ced4da; resize:none; border-radius:4px; vertical-align:middle; box-sizing:border-box;}
+.textarea[readonly]:focus {border-color:#c5c5c5;}
+.textarea.disabled, .textarea[disabled] {cursor:default; background-color:#e9ecef; color:#212529; opacity:0.50; filter:alpha(opacity=50); box-shadow:none;}
+.textarea::placeholder {font-size:1.3rem; color:#7a858f;}
+.frm_select {display:inline-block; min-width:80px; padding:4px 20px 4px 10px; min-height:34px; border:1px solid #ced4da; background:#fff url(../img/combobox.gif) no-repeat 100% -32px; vertical-align:middle; border-radius:4px; -webkit-appearance:none; appearance:none;}
+.frm_select::-ms-expand {display:none}
+.frm_select[multiple] {vertical-align:bottom;}
+.input_rdo, .input_chk {width:13px; height:13px; margin:-1px 2px 0 0; padding:0; vertical-align:middle;}
+.chkbox {display:inline-block; position:relative; line-height:19px; cursor:pointer;}
+.chkbox::before {content:''; display: inline-block; width:20px; height:20px; background:url(../img/ico_rdochk2.png) no-repeat 0 0; vertical-align:top;}
+.chkbox:hover::before {background-position:-20px 0;}
+.chkbox.chkbox_on::before {background-position:-40px 0;}
+.chkbox.disabled {cursor:default;}
+.chkbox.disabled::before {background-position:-60px 0;}
+.chkbox.disabled.chkbox_on::before {background-position:-80px 0;}
+.chkbox.hide {display:none;}
+.chkbox .input_chk {display:none; position:absolute; width:0; height:0; overflow:hidden; border:0;}
+.rdobtn {display:inline-block; position:relative; line-height:19px; cursor:pointer;}
+.rdobtn::before {content:''; display:inline-block; width:20px; height:20px; background:url(../img/ico_rdochk2.png) no-repeat 0 -20px; vertical-align:top;}
+.rdobtn:hover::before {background-position:-20px -20px;}
+.rdobtn.rdobtn_on::before {background-position:-40px -20px;}
+.rdobtn.disabled {cursor:default;}
+.rdobtn.disabled::before {background-position:-60px -20px;}
+.rdobtn.disabled.rdobtn_on::before {background-position:-80px -20px;}
+.rdobtn.hide {display:none;}
+.rdobtn .input_rdo {display:none; position:absolute; width:0; height:0; overflow:hidden; border:0;}
+.rdo_div, .chk_div, .txt_div {display:block;}
+.rdo_div label, .chk_div label, .txt_div label {display:inline-block; padding:3px 15px 3px 0; vertical-align:middle;}
+.rdo_div .disabled, .chk_div .disabled {color:#7a858f; cursor:default;}
+.guide_txt {color:#7a858f;}
+.bu_lst {margin:0; padding:0; list-style:none;}
+.bu_lst li {padding:4px 0 4px 8px; background:url(../img/bu_lst_1.gif) no-repeat 0 12px; line-height:1.3;}
+.hide {display:none;}
+
+/* Button */
+.btn {display:inline-block; height:34px; line-height:32px; margin:0; padding:0 10px; font-size:1.4rem; color:#212529; background-color:#fff; border:1px solid #ced4da; border-radius:4px; text-align:center; text-decoration:none; vertical-align:middle; cursor:pointer; box-sizing:border-box;}
+.btn:hover {background-color:#fff; background-image:none;}
+.btn:focus, .select_value:focus, .btn:focus, .select_code:focus {outline:5px auto -webkit-focus-ring-color; outline-offset:-2px;}
+.btn:active, .btn.active {background-color:#f1f1f1; background-image:none; outline:0; box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.10);}
+.btn.disabled, .btn[disabled] {cursor:default; background-color:#e9ecef; color:#212529; opacity:0.50; filter:alpha(opacity=50); box-shadow:none;}
+.btn.disabled:hover, .btn[disabled]:hover {background-color:#e9ecef;}
+.btn .ico {margin-top:9px; vertical-align:top;}
+.btn_pri, .btn_pri.drop_tgl {color:#fff; border-color:transparent !important; background-color:#3b6ee7 !important;}
+.btn_pri:hover {background-color:#3b6ee7; background-image:none;}
+.btn_pri:active, .btn_pri.disabled, .btn_pri[disabled] {color:#fff; background-color:#3b6ee7;}
+.btn_pri.disabled:hover, .btn_pri[disabled]:hover {color:#fff; background-color:#3b6ee7; border-color:transparent;}
+.btn_block {display:block; width:100%; padding-right:0; padding-left:0; box-sizing:border-box;}
+
+/* ========== 리소스 라이브러리 CSS 재정의 ========== */
+.ui-widget {font-size:1.4rem;}
+.ui-widget, .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button  {font-family:'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', '돋움', Dotum, Arial, sans-serif;}
+.ui-widget-overlay {background-color:#000; background-image:none; opacity:.5; filter:Alpha(Opacity=50);}
+
+/* jQuery UI Dialog */
+.ui-dialog {position:fixed; padding:0; border:0; background:#fff; overflow:visible; border-radius:8px; box-shadow:0 5px 10px rgba(0, 0, 0, 0.2); z-index:1100;}
+.ui-dialog .ui-dialog-title {margin:0; font-size:1.7rem; font-weight:600;}
+.ui-dialog .ui-dialog-titlebar {height:25px; line-height:25px; padding:15px 20px; border:0; border-bottom:1px solid #dee2e6; background:none; color:#212529;}
+.ui-dialog .ui-dialog-titlebar .ui-state-hover {border:0;}
+.ui-dialog .ui-dialog-titlebar-close {top:19px; right:19px; width:18px; height:18px; margin:0; padding:0; border:0; background:url(../img/ico_close.png) no-repeat 0 0; cursor:pointer; border-radius:0;}
+.ui-dialog .ui-dialog-titlebar-close .ui-icon {width:18px; height:18px; margin:0; background:none;}
+.ui-dialog .ui-dialog-content {padding:20px;}
+.ui-dialog .ui-dialog-content > .btn_area {margin:0; padding:20px 0 0; text-align:right;}
+.ui-dialog .ui-dialog-content > .btn_area .btn {min-width:100px; height:34px; line-height:32px; font-size:1.4rem;}
+.focus_blur {height:0; overflow:hidden; text-indent:-9999px;}
+
+/* 통합 인증 */
+.uni_auth_body {background-color:#f8f9fa;}
+.uni_auth_container .uni_auth_top {background-color:#fff;}
+.uni_auth_container .uni_auth_btm .or {position:relative; height:21px; line-height:21px; margin-top:-10px; text-align:center; font-size:1.2rem; color:#adb5bd;}
+.uni_auth_container .uni_auth_btm .or::before,
+.uni_auth_container .uni_auth_btm .or::after {content:''; display:block; position:absolute; top:10px; width:calc(50% - 25px); border-top:1px solid #dee2e6;}
+.uni_auth_container .uni_auth_btm .or::before {left:0;}
+.uni_auth_container .uni_auth_btm .or::after {right:0;}
+.shinhan_login_box {width:300px; margin:0 auto; padding:68px 0 50px;}
+.shinhan_login_box .login_title {height:40px; line-height:40px; padding-bottom:28px; text-align:center;}
+.shinhan_login_box .login_title h1 {margin:0; padding:0; font-size:32px; font-weight:800;}
+.shinhan_login_box .login_title h1 span {color:#3b6ee7;}
+.shinhan_login_box .login_guide {padding:20px 0;}
+.shinhan_login_box .login_form dl {display:flex; margin:0; padding:4px 0;}
+.shinhan_login_box .login_form dl dt {width:75px; margin:0; padding:0; line-height:44px; color:#7a858f;}
+.shinhan_login_box .login_form dl dd {width:225px; margin:0; padding:0;}
+.shinhan_login_box .login_form .frm_select {width:100%; height:44px; line-height:42px; padding:0 28px 0 12px; border-radius:8px; background:url(../img/frm_slt.png) no-repeat right 12px top 18px; font-size:1.6rem;}
+.shinhan_login_box .login_form .input_txt {width:100%; height:44px; line-height:42px; padding:0 12px; border-radius:8px; font-size:1.6rem;}
+.shinhan_login_box .login_button {padding-top:6px;}
+.shinhan_login_box .login_button .btn {height:48px; line-height:46px; font-size:1.6rem; font-weight:600;}
+.shinhan_login_box .login_button .btn_pri[disabled] {background-color:#ced4da !important; opacity:1;}
+.shinhan_login_box .login_option {padding-top:10px; text-align:right;}
+.shinhan_login_box .login_option .btn_pw {height:22px; line-height:22px; padding-left:22px; border:0; background:url(../img/ico_help2.png) no-repeat 0 3px; background-size:18px 18px; cursor:pointer;}
+.shinhan_login_box .login_option .btn_pw:hover {text-decoration:underline;}
+.easy_auth_login {max-width:360px; margin:0 auto; padding:18px 0; text-align:center;}
+.easy_auth_login .easy_auth {width:264px; min-height:150px; margin:0 auto; padding:10px 0;}
+.easy_auth_login .easy_auth button {float:left; width:50px; height:50px; margin:8px; padding:16px 0 0; border:1px solid #c4d4f8; background:#dbe4fb url(../img/easy_auth.png) no-repeat 50% 0; background-size:50px 450px; border-radius:25px; font-size:9px; font-weight:600; color:#3b6ee7; cursor:pointer;}
+.easy_auth_login .easy_auth .btn_app {background-position:50% 0;}
+.easy_auth_login .easy_auth .btn_qr {background-position:50% -50px;}
+.easy_auth_login .easy_auth .btn_sms {background-position:50% -100px;}
+.easy_auth_login .easy_auth .btn_mail {background-position:50% -150px;}
+.easy_auth_login .easy_auth .btn_sol {background-position:50% -200px; overflow:hidden; text-indent:-9999px;}
+.easy_auth_login .easy_auth .btn_play {background-position:50% -250px; overflow:hidden; text-indent:-9999px;}
+.easy_auth_login .easy_auth .btn_bio {background-position:50% -300px;}
+.easy_auth_login .easy_auth .btn_pin {background-position:50% -350px;}
+.easy_auth_login .easy_auth .btn_pw {background-position:50% -400px;}
+.easy_auth_login .uni_auth_link .btn_link {height:22px; line-height:22px; padding-left:20px; border:0; background:url(../img/ico_org.png) no-repeat 0 4px; background-size:15px 15px; cursor:pointer;}
+.easy_auth_login .uni_auth_link .btn_link:hover {text-decoration:underline;}
+.uni_auth_lyr {position:fixed; bottom:-100%; left:0; width:100%; background-color:#fff; border-radius:12px 12px 0 0; box-sizing:border-box; transition:0.3s; z-index:110;}
+.uni_auth_login {width:300px; margin:0 auto; padding:30px;}
+.uni_auth_login .tit {padding-bottom:10px; border-bottom:1px solid #dee2e6; font-weight:800;}
+.uni_auth_login .desc {padding:22px 0 32px; color:#7a858f;}
+.uni_auth_login .cont {height:330px;}
+.uni_auth_login .uni_auth .btn_auth {width:100%; height:85px; padding:10px; border:1px solid #3b6ee7; border-radius:4px; background-color:#f6f8fe; cursor:pointer;}
+.uni_auth_login .uni_auth .btn_auth strong {display:block; margin-bottom:4px; font-size:1.8rem; font-weight:600; color:#3b6ee7;}
+.uni_auth_login .uni_auth .btn_auth .account {display:inline-block; height:22px; line-height:22px; padding-left:22px; background:url(../img/ico_account.png) no-repeat 0 3px; background-size:18px 18px;}
+.uni_auth_login .uni_auth .btn_auth[disabled] {border-color:#dee2e6; background-color:#fff; color:#7a858f; cursor:default;}
+.uni_auth_login .uni_auth .btn_auth[disabled] strong {color:#212529;}
+.uni_auth_login .uni_auth + .uni_auth_app {margin-top:20px;}
+.uni_auth_login .uni_auth_prgs {height:245px;}
+.uni_auth_login .uni_auth_app {height:85px;}
+.uni_auth_login .uni_auth_app button {width:140px; height:85px; padding:10px; border:1px solid #3b6ee7; border-radius:4px; background-color:#f6f8fe; cursor:pointer;}
+.uni_auth_login .uni_auth_app button .icon {display:block; width:40px; height:24px; margin:0 auto; background-repeat:no-repeat; background-position:0 0;}
+.uni_auth_login .uni_auth_app .btn_sol {float:left;}
+.uni_auth_login .uni_auth_app .btn_sol .icon {background-image:url(../img/app_sol.png);}
+.uni_auth_login .uni_auth_app .btn_play {float:right;}
+.uni_auth_login .uni_auth_app .btn_play .icon {background-image:url(../img/app_play.png);}
+.uni_auth_login .nun_auth_btn button {width:100%; height:48px; border:1px solid #ced4da; border-radius:4px; background-color:#fff; font-weight:600; cursor:pointer;}
+.uni_auth_login .nun_auth_btn .btn_pri {border:0; background-color:#3b6ee7; color:#fff;}
+.uni_auth_login .nun_auth_btn .btn_pri[disabled] {background-color:#ced4da; opacity:1;}
+.uni_auth_login .nun_auth_btn .btn_link:hover {text-decoration:none !important;}
+.uni_auth_open {width:100%; height:100%; overflow:hidden;}
+.uni_auth_open .uni_auth_lyr {bottom:0;}
+.easy_auth_lyr .ui-dialog-title {float:none; width:100%; font-size:2rem; font-weight:800;}
+.easy_auth_lyr .ui-dialog-titlebar {padding:25px 20px 5px; border-bottom:0; text-align:center;}
+.easy_auth_box {position:relative; min-height:230px; padding-bottom:63px;}
+.easy_auth_box .auth_form {padding-bottom:10px; border-bottom:1px solid #dee2e6;}
+.easy_auth_box .auth_form dl {display:flex; margin:0; padding:4px 0;}
+.easy_auth_box .auth_form dl dt, 
+.easy_auth_box .auth_form dl dd {margin:0; padding:0; line-height:26px;}
+.easy_auth_box .auth_form dl dd .chk_div,
+.easy_auth_box .auth_form dl dd .rdo_div {line-height:normal;}
+.easy_auth_box .auth_form dl dt {width:80px; font-weight:600;}
+.easy_auth_box .auth_form dl dd {width:208px;}
+.easy_auth_box .auth_form dl.dl_ip dt,
+.easy_auth_box .auth_form dl.dl_ip dd {line-height:32px;}
+.easy_auth_box .auth_form dl.dl_ip .input_txt,
+.easy_auth_box .auth_form dl.dl_ip .frm_select {width:100%;}
+.easy_auth_box .auth_form dl.dl_ip .frm_select {background:url(../img/frm_slt.png) no-repeat right 8px top 12px;}
+.easy_auth_box .auth_progress {padding-top:30px; text-align:center; color:#7a858f;}
+.easy_auth_box .auth_progress .text em {font-style:normal; color:#3b6ee7;}
+.easy_auth_box .auth_progress .timer {margin-top:20px; color:#212529;}
+.easy_auth_box .auth_progress .timer .countdown {color:#3b6ee7;}
+.easy_auth_box .auth_progress .form {margin-top:20px; text-align:center;}
+.easy_auth_box .auth_progress .form .input_txt {width:200px; height:44px; line-height:42px; padding:0 12px; border-radius:8px; font-size:1.6rem;}
+.easy_auth_box .btn_area {position:absolute; bottom:0; left:0; width:100%; margin:0;}
+.easy_auth_box .btn_area .btn {height:48px; line-height:46px; font-size:1.6rem; font-weight:600;}
+.easy_auth_box .btn_area .btn_pri[disabled] {background-color:#ced4da !important; opacity:1;}
+.auth_qr_box .qr_code {padding-top:30px;}
+.auth_qr_box .qr_code .image {width:60px; height:60px; margin:0 auto;}
+.auth_qr_box .qr_code .image img {width:100%; height:100%; vertical-align:top;}
+.auth_qr_box .auth_progress {padding-top:15px;}
+.auth_sol_box .auth_form {border-bottom:0;}
+.auth_sol_box .auth_progress {padding-top:50px;}
+.auth_play_box .auth_form {border-bottom:0;}
+.auth_play_box .auth_progress {padding-top:50px;}
+.blind {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.5; z-index:100;}
+
+/* 비밀번호 초기화 */
+.pw_reset_box {max-width:360px; margin:0 auto; padding:40px 30px;}
+.pw_reset_box .box_tit {height:40px; line-height:40px; margin-bottom:20px; text-align:center;}
+.pw_reset_box .box_tit h1 {margin:0; padding:0; font-size:32px; font-weight:800;}
+.pw_reset_box .box_tit h1 span {color:#3b6ee7;}
+.pw_reset_box .box_cont {margin-bottom:40px;}
+.pw_reset_box .box_cont .pw_guide .bu_lst li {color:#7a858f; word-break:break-all;}
+.pw_reset_box .box_cont .pw_form {padding:30px 0;}
+.pw_reset_box .box_cont .pw_form dl {height:34px; margin:0; padding:4px 0 4px 120px;}
+.pw_reset_box .box_cont .pw_form dl dt {float:left; width:120px; margin-left:-120px; line-height:34px;}
+.pw_reset_box .box_cont .pw_form dl dd {float:left; width:100%; margin:0; padding:0;}
+.pw_reset_box .box_cont .pw_form .input_txt {width:100%;}
+.pw_reset_box .box_cont .pw_warning {color:#fa5252;}
+.pw_reset_box .box_btm .btn {height:48px; line-height:46px; font-size:1.6rem; font-weight:600;}
+.pw_reset_box .box_btm .btn_pri[disabled] {background-color:#ced4da !important; opacity:1;}

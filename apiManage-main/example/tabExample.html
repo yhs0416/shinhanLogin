@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#operInfoTab" role="tablist">
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500"
+                 id="user_manage_tab" data-tabs-target="#user_manage" type="button" role="tab" aria-controls="user_manage" aria-selected="true">사용자관리</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700" 
+                id="noti_id_tab" data-tabs-target="#noti_id" type="button" role="tab" aria-controls="noti_id" aria-selected="false">알림ID관리</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700" 
+                id="auth_api_tab" data-tabs-target="#auth_api" type="button" role="tab" aria-controls="auth_api" aria-selected="false">인증API</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700" 
+                id="approval_api_tab" data-tabs-target="#approval_api" type="button" role="tab" aria-controls="approval_api" aria-selected="false">결재API</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700" 
+                id="search_api_tab" data-tabs-target="#search_api" type="button" role="tab" aria-controls="search_api" aria-selected="false">검색API</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700" 
+                id="noti_api_tab" data-tabs-target="#noti_api" type="button" role="tab" aria-controls="noti_api" aria-selected="false">알림API</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700" 
+                id="addr_api_tab" data-tabs-target="#addr_api" type="button" role="tab" aria-controls="addr_api" aria-selected="false">주소록API</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700" 
+                id="schedule_api_tab" data-tabs-target="#schedule_api" type="button" role="tab" aria-controls="schedule_api" aria-selected="false">일정API</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700" 
+                id="inter_auth_tab" data-tabs-target="#inter_auth" type="button" role="tab" aria-controls="inter_auth" aria-selected="false">통합인증</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700" 
+                id="simple_approval_tab" data-tabs-target="#simple_approval" type="button" role="tab" aria-controls="simple_approval" aria-selected="false">통합인증</button>
+            </li>
+        </ul>
+    </div>
+    <div id="operInfoTab">
+        <div class="p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="user_manage" role="tabpanel" aria-labelledby="user_manage_tab">
+            <div>
+                사용자관리 내용
+            </div>
+        </div>
+        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="noti_id" role="tabpanel" aria-labelledby="noti_id_tab">
+            <div>
+                알림ID관리 내용
+            </div>
+        </div>
+        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="auth_api" role="tabpanel" aria-labelledby="auth_api_tab">
+            <div>
+                인증API 내용
+            </div>
+        </div>
+        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="approval_api" role="tabpanel" aria-labelledby="approval_api_tab">
+            <div>
+                결재API 내용
+            </div>
+        </div>
+        <div class="p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="search_api" role="tabpanel" aria-labelledby="search_api_tab">
+            <div>
+                검색API 내용
+            </div>
+        </div>
+        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="noti_api" role="tabpanel" aria-labelledby="noti_api_tab">
+            <div>
+                알림API 내용
+            </div>
+        </div>
+        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="addr_api" role="tabpanel" aria-labelledby="addr_api_tab">
+            <div>
+                주소록API 내용
+            </div>
+        </div>
+        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="schedule_api" role="tabpanel" aria-labelledby="schedule_api_tab">
+            <div>
+                일정API 내용
+            </div>
+        </div>
+        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="inter_auth" role="tabpanel" aria-labelledby="inter_auth_tab">
+            <div>
+                통합인증
+            </div>
+        </div>
+        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="simple_approval" role="tabpanel" aria-labelledby="simple_approval_tab">
+            <div>
+                간편결재
+            </div>
+        </div>
+    </div>
+      
+  
+</body>
+</html>

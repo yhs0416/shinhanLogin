@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<title>Shinhan 통합 인증</title>
+<link href="resources/lib/jquery/css/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+<link href="resources/css/auth.css" rel="stylesheet">
+<link href="resources/css/fonts_noto.css" rel="stylesheet">
+<script src="resources/lib/jquery/js/jquery-1.9.1.js"></script>
+<script src="resources/lib/jquery/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="resources/js/bootstrap.js"></script>
+<script src="resources/js/ui_v7a.js"></script>
+<script>
+$(function() {
+	$(document).ready(function() {
+		UI.init();
+	});
+
+	// APP 인증 레이어
+	$("#auth_app_lyr").dialog({
+		dialogClass: "easy_auth_lyr auth_app_lyr",
+		modal: true,
+		autoOpen: false,
+		resizable: false,
+		draggable: false,
+		show: "fade",
+		hide: "fade",
+		width: "328"
+	});
+
+	// QR 인증 레이어
+	$("#auth_qr_lyr").dialog({
+		dialogClass: "easy_auth_lyr auth_qr_lyr",
+		modal: true,
+		autoOpen: false,
+		resizable: false,
+		draggable: false,
+		show: "fade",
+		hide: "fade",
+		width: "328"
+	});
+
+	// SMS 인증 레이어
+	$("#auth_sms_lyr").dialog({
+		dialogClass: "easy_auth_lyr auth_sms_lyr",
+		modal: true,
+		autoOpen: false,
+		resizable: false,
+		draggable: false,
+		show: "fade",
+		hide: "fade",
+		width: "328"
+	});
+
+	// E-MAIL 인증 레이어
+	$("#auth_mail_lyr").dialog({
+		dialogClass: "easy_auth_lyr auth_mail_lyr",
+		modal: true,
+		autoOpen: false,
+		resizable: false,
+		draggable: false,
+		show: "fade",
+		hide: "fade",
+		width: "328"
+	});
+
+	// 신한 SOL 인증 레이어
+	$("#auth_sol_lyr").dialog({
+		dialogClass: "easy_auth_lyr auth_sol_lyr",
+		modal: true,
+		autoOpen: false,
+		resizable: false,
+		draggable: false,
+		show: "fade",
+		hide: "fade",
+		width: "328"
+	});
+
+	// 신한 PLAY 인증 레이어
+	$("#auth_play_lyr").dialog({
+		dialogClass: "easy_auth_lyr auth_play_lyr",
+		modal: true,
+		autoOpen: false,
+		resizable: false,
+		draggable: false,
+		show: "fade",
+		hide: "fade",
+		width: "328"
+	});
+});
+
+$(function() {
+	// 블라인드 닫기
+	$("#blind").click(function () {
+		$('body').removeClass('uni_auth_open'); // 통합 인증
+		$('#blind').fadeOut('fast'); // 블라인드
+	});
+});
+
+// 통합 인증 열기
+function uniAuthOpen(){
+	$('body').addClass('uni_auth_open');
+	$('#blind').fadeIn('fast');
+}
+
+// 통합 인증 닫기
+function uniAuthClose(){
+	$('body').removeClass('uni_auth_open');
+	$('#blind').fadeOut('fast');
+}
+</script>
+</head>
+<body class="uni_auth_body">
+<div class="uni_auth_container">
+	<div class="uni_auth_top">
+		<!-- 로그인 -->
+		<div class="shinhan_login_box">
+			<div class="login_title">
+				<h1>통합 인증 <span>로그인</span></h1>
+			</div>
+			<div class="login_guide" style="display:none;">아래 표시된 간편 인증 방법 중 하나를 선택하여 진행해 주시기 바랍니다.</div>
+			<dlv class="login_form">
+				<dl>
+					<dt>그룹사</dt>
+					<dd>
+						<select class="frm_select">
+							<option>신한은행</option>
+							<option>신한금융지주</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>사번</dt>
+					<dd><input name="" type="text" class="input_txt"></dd>
+				</dl>
+				<dl>
+					<dt>비밀번호</dt>
+					<dd><input name="" type="password" class="input_txt"></dd>
+				</dl>
+			</dlv>
+			<div class="login_button">
+				<button type="button" class="btn btn_block btn_pri">로그인</button>
+			</div>
+			<div class="login_option">
+				<button type="button" class="btn_pw">비밀번호 찾기</button>
+			</div>
+		</div>
+		<!--// 로그인 -->
+	</div>
+	<div class="uni_auth_btm">
+		<div class="or"><span>또는</span></div>
+		<!-- 간편 인증 -->
+		<div class="easy_auth_login">
+			<div class="tit">간편인증으로 시작하기</div>
+			<div class="easy_auth">
+				<button type="button" onclick="openDialog('auth_app_lyr')" class="btn_app">APP</button>
+				<button type="button" onclick="openDialog('auth_qr_lyr')" class="btn_qr">QR</button>
+				<button type="button" onclick="openDialog('auth_sms_lyr')" class="btn_sms">SMS</button>
+				<button type="button" onclick="openDialog('auth_mail_lyr')" class="btn_mail">E-mail</button>
+				<button type="button" onclick="openDialog('auth_sol_lyr')" class="btn_sol">신한SOL</button>
+				<button type="button" onclick="openDialog('auth_play_lyr')" class="btn_play">신한PLAY</button>
+				<button type="button" onclick="openDialog('auth_bio_lyr')" class="btn_bio">BIO</button>
+				<button type="button" onclick="openDialog('auth_pin_lyr')" class="btn_pin">PIN</button>
+				<!-- <button type="button" class="btn_pw">PW</button> -->
+			</div>
+			<div class="uni_auth_link">
+				<button type="button" onclick="uniAuthOpen();" class="btn_link">통합인증 로그인으로 시작하기</button>
+			</div>
+		</div>
+		<!--// 간편 인증 -->
+	</div>
+</div>
+<!-- 통합 인증 -->
+<div class="uni_auth_lyr">
+	<div class="uni_auth_login">
+		<div class="tit">통합인증 로그인</div>
+		<div class="desc">현재 그룹웨어에 로그인된 사용자 정보를 이용하여 간편하게 로그인할 수 있습니다.</div>
+		<div class="uni_auth">
+			<button type="button" class="btn_auth"><strong>S-Work</strong><span class="account">홍신한으로 바로 로그인하기</span></button>
+		</div>
+		<div class="uni_auth_prgs"></div>
+		<div class="nun_auth_btn">
+			<button type="button" onclick="uniAuthClose();" class="btn_link">다른 방식으로 로그인하기</button>
+		</div>
+	</div>
+</div>
+<!--// 통합 인증 -->
+<!-- APP 인증 레이어 -->
+<div id="auth_app_lyr" title="APP 인증">
+	<div class="tit_bar hide">
+		<h3>APP 인증</h3>
+	</div>
+	<!-- autofocus 방지 --> 
+    <div class="focus_blur"><input type="checkbox" class="input_chk"></div> 
+    <!-- // autofocus 방지 -->
+	<div id="app1" class="easy_auth_box auth_app_box">
+		<div class="auth_form">
+			<dl class="dl_ip">
+				<dt>그룹사</dt>
+				<dd>
+					<select class="frm_select">
+						<option>신한은행</option>
+						<option>신한금융지주</option>
+					</select>
+				</dd>
+			</dl>
+			<dl class="dl_ip">
+				<dt>사번</dt>
+				<dd><input name="" type="text" class="input_txt"></dd>
+			</dl>
+			<dl>
+				<dt>인증 앱</dt>
+				<dd>
+					<div class="rdo_div">
+						<label><input name="ra" type="radio" value="" class="input_rdo"> S-Work</label>
+    					<label><input name="ra" type="radio" value="" class="input_rdo"> S-Talk</label>
+					</div>
+				</dd>
+			</dl>
+		</div>
+		<div class="auth_progress">
+			<div class="auth_timer">
+				<div class="text">인증할 앱을 선택해주세요.</div>
+			</div>
+		</div>
+		<div class="btn_area">
+			<button type="button" onclick="hideLayer('app1');showLayer('app2')" class="btn btn_block btn_pri">인증 완료</button>
+		</div>
+	</div>
+	<div id="app2" class="easy_auth_box auth_app_rslt" style="display:none;">
+		<div class="auth_progress">
+			<div class="auth_timer">
+				<div class="text"><em>S-Work 앱</em>으로 인증 요청을 보냈습니다.<br>제한 시간 내 인증을 완료하고 버튼을 눌러주세요.</div>
+				<div class="timer">남은 시간 : <strong class="countdown">2:58</strong></div>
+			</div>
+		</div>
+		<div class="btn_area">
+			<button type="button" onclick="hideLayer('app2');showLayer('app1')" class="btn btn_block btn_pri">인증 완료</button>
+		</div>
+	</div>
+</div>
+<!--// APP 인증 레이어 -->
+<!-- QR 인증 레이어 -->
+<div id="auth_qr_lyr" title="QR 인증">
+	<div class="tit_bar hide">
+		<h3>QR 인증</h3>
+	</div>
+	<!-- autofocus 방지 --> 
+    <div class="focus_blur"><input type="checkbox" class="input_chk"></div> 
+    <!-- // autofocus 방지 -->
+	<div class="easy_auth_box auth_qr_box">
+		<div class="qr_code">
+			<div class="image"><img src="resources/img/@tmp_qr.png" alt=""></div>
+		</div>
+		<div class="auth_progress">
+			<div class="auth_timer">
+				<div class="text">위 QR코드를 스캔하여 인증해주세요.</div>
+				<div class="timer">남은 시간 : <strong class="countdown">2:58</strong></div>
+			</div>
+		</div>
+		<div class="btn_area">
+			<button type="button" class="btn btn_block btn_pri">인증 완료</button>
+		</div>
+	</div>
+</div>
+<!--// QR 인증 레이어 -->
+<!-- SMS 인증 레이어 -->
+<div id="auth_sms_lyr" title="SMS 인증">
+	<div class="tit_bar hide">
+		<h3>SMS 인증</h3>
+	</div>
+	<!-- autofocus 방지 --> 
+    <div class="focus_blur"><input type="checkbox" class="input_chk"></div> 
+    <!-- // autofocus 방지 -->
+	<div class="easy_auth_box auth_sms_box">
+		<div class="auth_progress">
+			<div class="auth_timer">
+				<div class="text"><em>010-4567-7890</em>으로 인증번호를 발송했습니다.<br>제한 시간 내 입력해 주시기 바랍니다.</div>
+				<div class="timer">남은 시간 : <strong class="countdown">2:58</strong></div>
+				<div class="form"><input name="" type="text" class="input_txt"></div>
+			</div>
+		</div>
+		<div class="btn_area">
+			<button type="button" class="btn btn_block btn_pri">인증 완료</button>
+		</div>
+	</div>
+</div>
+<!--// SMS 인증 레이어 -->
+<!-- E-MAIL 인증 레이어 -->
+<div id="auth_mail_lyr" title="E-MAIL 인증">
+	<div class="tit_bar hide">
+		<h3>E-MAIL 인증</h3>
+	</div>
+	<!-- autofocus 방지 --> 
+    <div class="focus_blur"><input type="checkbox" class="input_chk"></div> 
+    <!-- // autofocus 방지 -->
+	<div class="easy_auth_box auth_mail_box">
+		<div class="auth_progress">
+			<div class="auth_timer">
+				<div class="text"><em>blossom@shinhan.com</em>으로<br>인증번호를 발송했습니다.<br>제한 시간 내 입력해 주시기 바랍니다.</div>
+				<div class="timer">남은 시간 : <strong class="countdown">2:58</strong></div>
+				<div class="form"><input name="" type="text" class="input_txt"></div>
+			</div>
+		</div>
+		<div class="btn_area">
+			<button type="button" class="btn btn_block btn_pri">인증 완료</button>
+		</div>
+	</div>
+</div>
+<!--// E-MAIL 인증 레이어 -->
+<!-- 신한 SOL 인증 레이어 -->
+<div id="auth_sol_lyr" title="신한 SOL 인증">
+	<div class="tit_bar hide">
+		<h3>신한 SOL 인증</h3>
+	</div>
+	<!-- autofocus 방지 --> 
+    <div class="focus_blur"><input type="checkbox" class="input_chk"></div> 
+    <!-- // autofocus 방지 -->
+	<div id="sol1" class="easy_auth_box auth_sol_box">
+		<div class="auth_form">
+			<dl>
+				<dt>사번</dt>
+				<dd>41113455</dd>
+			</dl>
+			<dl class="dl_ip">
+				<dt>이름</dt>
+				<dd><input name="" type="text" class="input_txt"></dd>
+			</dl>
+			<dl class="dl_ip">
+				<dt>휴대폰</dt>
+				<dd><input name="" type="text" class="input_txt"></dd>
+			</dl>
+			<dl class="dl_ip">
+				<dt>생년월일</dt>
+				<dd><input name="" type="text" class="input_txt"></dd>
+			</dl>
+		</div>
+		<div class="btn_area">
+			<button type="button" onclick="hideLayer('sol1');showLayer('sol2')" class="btn btn_block btn_pri">인증 요청</button>
+		</div>
+	</div>
+	<div id="sol2" class="easy_auth_box auth_sol_rslt" style="display:none;">
+		<div class="auth_progress">
+			<div class="auth_timer">
+				<div class="text"><em>신한 SOL 앱</em>으로 인증 요청을 보냈습니다.<br>제한 시간 내 인증을 완료하고 버튼을 눌러주세요.</div>
+				<div class="timer">남은 시간 : <strong class="countdown">2:58</strong></div>
+			</div>
+		</div>
+		<div class="btn_area">
+			<button type="button" onclick="hideLayer('sol2');showLayer('sol1')" class="btn btn_block btn_pri">인증 완료</button>
+		</div>
+	</div>
+</div>
+<!--// 신한 SOL 인증 레이어 -->
+<!-- 신한 PLAY 인증 레이어 -->
+<div id="auth_play_lyr" title="신한 PLAY 인증">
+	<div class="tit_bar hide">
+		<h3>신한 PLAY 인증</h3>
+	</div>
+	<!-- autofocus 방지 --> 
+    <div class="focus_blur"><input type="checkbox" class="input_chk"></div> 
+    <!-- // autofocus 방지 -->
+	<div id="play1" class="easy_auth_box auth_play_box">
+		<div class="auth_form">
+			<dl>
+				<dt>사번</dt>
+				<dd>41113455</dd>
+			</dl>
+			<dl class="dl_ip">
+				<dt>이름</dt>
+				<dd><input name="" type="text" class="input_txt"></dd>
+			</dl>
+			<dl class="dl_ip">
+				<dt>휴대폰</dt>
+				<dd><input name="" type="text" class="input_txt"></dd>
+			</dl>
+			<dl class="dl_ip">
+				<dt>생년월일</dt>
+				<dd><input name="" type="text" class="input_txt"></dd>
+			</dl>
+		</div>
+		<div class="btn_area">
+			<button type="button" onclick="hideLayer('play1');showLayer('play2')" class="btn btn_block btn_pri">인증 요청</button>
+		</div>
+	</div>
+	<div id="play2" class="easy_auth_box auth_play_rslt" style="display:none;">
+		<div class="auth_progress">
+			<div class="auth_timer">
+				<div class="text"><em>신한 SOL 앱</em>으로 인증 요청을 보냈습니다.<br>제한 시간 내 인증을 완료하고 버튼을 눌러주세요.</div>
+				<div class="timer">남은 시간 : <strong class="countdown">2:58</strong></div>
+			</div>
+		</div>
+		<div class="btn_area">
+			<button type="button" onclick="hideLayer('play2');showLayer('play1')" class="btn btn_block btn_pri">인증 완료</button>
+		</div>
+	</div>
+</div>
+<!--// 신한 PLAY 인증 레이어 -->
+<div id="blind" class="blind"></div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "../lib/tailwind.js"></script>
+    <script src="./includeHtml.js" defer></script>
+    <script src="../lib/datepicker.js"></script>
+    <script src="../lib/flowbite.js"></script>
+</head>
+
+<body>
+    <div class='flex h-screen w-screen m-3'>
+        <div class='w-1/5' data-include="./common.html"></div>
+        <div class='flex w-screen flex-col m-3'>
+            <!-- 상단바 -->
+            <div class='m-3 w-5/6 border-b-8 text-xl'>
+                거래로그 | 배치로그
+            </div>
+            <!-- 하단화면 -->
+            <div class="flex  flex-wrap w-4/5  m-3">
+                <div class='w-4/5 m-3 pl-3 pr-3 font-bold'>
+                    검색조건
+                </div>
+                <div>
+                    <button class='bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
+                        조회
+                    </button>
+                    <button class='bg-gray-400 text-center border-4 m-3 pl-3 pr-3 font-bold'>
+                        다운로드
+                    </button>
+                </div>
+
+                <!-- 검색조건 -->
+                <div class="m-9">
+                    <form>
+                        <div class="grid gap-6 mb-6 md:grid-cols-5">
+                            <!-- <div>
+                                <label for="start_time"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">삭제시작일</label>
+                                <input type="text" id="start_time"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="end_time"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">삭제종료일</label>
+                                <input type="text" id="end_time"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                            </div> -->
+                            <div date-rangepicker datepicker-format="yyyy-mm-dd" class="flex items-center col-span-2">
+                                <div class="relative mb-2 block">
+                                    <div class="flex absolute inset-y-0 left-0 items-center pl-3 pt-7 pointer-events-none">
+                                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" ><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">삭제시작일</label>
+                                    <input id = "start_date" name="start" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="삭제시작일">
+                                </div>
+                                <span class="mx-4 text-gray-500 mt-7">~</span>
+                                <div class="relative mb-2 relative">
+                                    <div class="flex absolute inset-y-0 left-0 items-center pl-3 pt-7 pointer-events-none">
+                                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" ><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">삭제종료일</label>
+                                    <input id = "end_date" name="end" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="삭제종료일">
+                                </div>
+                             </div>
+                            <div>
+                                <label for="idx_db_nm"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">색인DB명</label>
+                                <input type="text" id="idx_dn_nm"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="delete_yn"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">삭제여부</label>
+                                <input type="text" id="delete_yn"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="ps_cont"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">처리내용</label>
+                                <input type="text" id="ps_cont"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table-fixed w-full border-separate border border-slate-400">
+                        <thead>
+                            <tr>
+                              <th class= "p-5 w-20">순번</th>
+                              <th class= "p-5">삭제일시</th>
+                              <th class= "p-5">색인DB명</th>
+                              <th class= "p-5">색인ID</th>
+                              <th class= "p-5">삭제여부</th>
+                              <th class= "p-5">삭제내용</th>
+                            </tr>
+                          </thead>  
+                          <tbody class= "text-sm text-center">
+                              <tr>
+                                  <td class= "p-5">1</td>
+                                  <td class= "p-5">2022-10-17 10:30:01.123</td>
+                                  <td class= "p-5">app_aa</td>
+                                  <td class= "p-5">aa760328317100509176</td>
+                                  <td class= "p-5">Yes</td>
+                                  <td class= "p-5">처리결과입니다.</td>
+                              </tr>
+                              <tr>
+                                <td class= "p-5">2</td>
+                                <td class= "p-5">2022-10-18 11:33:17.123</td>
+                                <td class= "p-5">app_bb</td>
+                                <td class= "p-5">aa7603283171005876</td>
+                                <td class= "p-5">No</td>
+                                <td class= "p-5">삭제처리되지 않았습니다</td>
+                            </tr>
+                          </tbody>
+                    </table>
+                    <nav class="flex m-3 items-center justify-center">
+                        <ul class="inline-flex items-center -space-x-px">
+                          <li>
+                              <a href="#" class="block py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                <span class="sr-only">Previous</span>
+                                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                            </li>
+                            <li>
+                              <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                            </li>
+                            <li>
+                              <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
+                            </li>
+                            <li>
+                              <a href="#" class="block py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                  <span class="sr-only">Next</span>
+                                  <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li>
+                        </ul>
+                  </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
